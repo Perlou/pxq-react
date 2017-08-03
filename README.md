@@ -1,2 +1,0 @@
-# pxq-react
-react
