@@ -12,7 +12,7 @@ import HomePage from './pages/HomePage'
 export function configRoutes () {
     return (
         <Route path="/" component={App}>
-            <IndexRoute component={HomePage}></IndexRoute>
+            <IndexRoute component={HomePage} />
         </Route>
     )
 }

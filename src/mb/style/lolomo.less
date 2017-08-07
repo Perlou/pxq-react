@@ -1,0 +1,102 @@
+@import '../../vendor/octicons/utf-codes.less';
+@import 'variables';
+
+
+.mb-lolomo-row {
+  padding-top: @mb-app-padding - 10;
+  padding-bottom: @mb-app-padding + 10;
+  overflow-x: hidden;
+
+  .row-head {
+    padding-left: @mb-app-padding;
+    margin-bottom: 20px;
+  }
+
+  .row-content {
+    position: relative;
+    padding-left: @mb-app-padding;
+  }
+
+  .scrollable {
+    transition: transform 0.6s;
+  }
+
+  .scroll-button {
+    opacity: 0;
+    color: white;
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    top: 0;
+    bottom: 0;
+    width: @mb-app-padding;
+    font-size: 48px;
+    transition: opacity 0.4s;
+
+    &.left {
+      left: 0;
+      background: linear-gradient(to left, rgba(0,0,0,0) 0%, rgba(0,0,0,0.9) 100%);
+    }
+
+    &.right {
+      right: 0;
+      background: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.9) 100%);
+    }
+  }
+
+  .jaw-bone-transition-enter {
+    transition: all 0.4s;
+    transform: rotateX(-30deg);
+    transform-origin: top center;
+    opacity: 0;
+  }
+  .jaw-bone-transition-enter-active {
+    transform: rotateX(0);
+    opacity: 1;
+  }
+
+  .jaw-bone-transition-leave {
+    transition: all 0.25s;
+    transform: rotateX(0);
+    transform-origin: top center;
+    opacity: 1;
+  }
+  .jaw-bone-transition-leave-active {
+    opacity: 0;
+    transform: rotateX(-30deg);
+  }
+
+
+
+  &:hover {
+    .scroll-button {
+      opacity: 0.85;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  &:hover, &.has-selection {
+    .row-head {
+      .title {
+        color: @link-hover-color;
+
+        &::after {
+          content: ' @{chevron-right}';
+          font-family: 'Octicons Regular';
+          font-size: smaller;
+        }
+      }
+    }
+  }
+
+  &.no-selection {
+    .mb-lomo-covers-cell {
+      opacity: 1;
+    }
+  }
+}
