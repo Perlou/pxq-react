@@ -16,10 +16,28 @@ module.exports = {
     },
     devtool: devMode ? 'source-map' : false,
     devServer: {
-        compress: true
+        compress: true,
+        historyApiFallback: true,
+        hot: false,
+        hotOnly: false,
+        contentBase: path.resolve(__dirname, 'public'),
+        watchContentBase: false,
+        watchOptions: {
+            poll: false
+        },
+        proxy: {
+            '/api': {
+                target: 'http://api.douban.com/v2',
+                pathRewrite: { '^/api': '' },
+                changeOrigin: true,
+            }
+        }
     },
     resolve: {
-        extensions: ['.js', '.jsx']
+        extensions: ['.js', '.jsx'],
+        alias: {
+            octicons: path.resolve(__dirname, './src/vendor/octicons')
+        }
     },
     module: {
         rules: [

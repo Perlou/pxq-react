@@ -5,4 +5,8 @@
 
 import { combineReducers } from 'redux-immutable'
 
-export default combineReducers({})
+import models from './models'
+
+export default combineReducers({
+    models
+})

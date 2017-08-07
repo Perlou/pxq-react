@@ -4,6 +4,7 @@
  */
 
 import React from 'react'
+import Immutable from 'immutable'
 
 import '../style/lolomo.less'
 
@@ -15,10 +16,11 @@ const TITLES = {
 
 export default class LoLoMoContainer extends React.PureComponent {
     static propTypes = {
-        models: React.PropTypes.object
+        models: React.PropTypes.objectOf(Immutable.Map).isRequired
     }
 
     render () {
+        console.log(this.props.models)
         return (
             <div className="mb-lolomo">
                 This is container
