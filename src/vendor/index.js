@@ -13,3 +13,4 @@ import 'redux-promise';
 import 'react-router';
 
 import 'normalize.css';
+import './octicons/index.less';

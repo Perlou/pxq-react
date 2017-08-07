@@ -8,13 +8,15 @@ import { browserHistory, Router } from 'react-router'
 import { Provider } from 'react-redux'
 import { render } from 'react-dom'
 
-
+import { configRoutes } from './routes'
 
 import './style/index.less'
 
 $(() => {
     render(
-        <h1>Hello</h1>,
+        <Router history={browserHistory}>
+            {configRoutes()}
+        </Router>,
         document.getElementById('mbMountPoint')
     )
 })
