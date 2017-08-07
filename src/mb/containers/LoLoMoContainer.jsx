@@ -6,6 +6,9 @@
 import React from 'react'
 import Immutable from 'immutable'
 
+import LoLoMoRow from '../components/LoLoMoRow'
+import LoMoCoversContainer from './LoMoCoversContainer'
+
 import '../style/lolomo.less'
 
 const TITLES = {
@@ -16,14 +19,40 @@ const TITLES = {
 
 export default class LoLoMoContainer extends React.PureComponent {
     static propTypes = {
-        models: React.PropTypes.objectOf(Immutable.Map).isRequired
+        models: React.PropTypes.objectOf(Immutable.Map).isRequired,
+        selectedModelKey: React.PropTypes.string
     }
 
     render () {
-        console.log(this.props.models)
+        const {
+            models,
+            selectedModelKey
+        } = this.props
+
+        const rows = models.map((model, key) => {
+            const title = TITLES[key]
+            const hasSelection = selectedModelKey === key
+
+            let jawBone = null
+
+            return (
+                <LoLoMoRow
+                    key={key}
+                    hasSelection={hasSelection}
+                    title={title}
+                    modelKey={key}>
+                    <LoMoCoversContainer 
+                        subjects={model.get('subjects')}
+                        hasSelection={hasSelection}
+                        modelKey={key} />
+                </LoLoMoRow>
+            )
+        }).toArray()
+
+
         return (
             <div className="mb-lolomo">
-                This is container
+                {rows}
             </div>
         )
     }

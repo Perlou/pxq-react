@@ -35,7 +35,7 @@ export default class HomePage extends React.PureComponent {
 
     render () {
         const models = Immutable.Map({
-            comingSoon: this.props.models.get('comingSoon'),
+            inTheaters: this.props.models.get('inTheaters'),
             comingSoon: this.props.models.get('comingSoon'),
             top20: this.props.models.get('top20')
         })
