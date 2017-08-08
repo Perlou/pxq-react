@@ -13,6 +13,8 @@ import AppFooter from '../components/AppFooter'
 import AppHeader from '../components/AppHeader'
 import ProgressBar from '../components/ProgressBar'
 
+import '../style/app.less'
+
 export default class App extends React.PureComponent {
     static propType = {
         children: React.PropTypes.element

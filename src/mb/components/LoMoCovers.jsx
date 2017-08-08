@@ -13,6 +13,9 @@ import '../style/lomo-covers.less'
 
 export default class LoMoCovers extends React.Component {
     static propTypes = {
+        actions: React.PropTypes.shape({
+            selectSubject: React.PropTypes.func.isRequired
+        }).isRequired,
         hasSelection: React.PropTypes.bool,
         selectedSubjectId: React.PropTypes.string,
         subjects: React.PropTypes.objectOf(Immutable.List).isRequired
@@ -25,6 +28,7 @@ export default class LoMoCovers extends React.Component {
 
     render () {
         const {
+            actions,
             subjects,
             selectedSubjectId
         } = this.props

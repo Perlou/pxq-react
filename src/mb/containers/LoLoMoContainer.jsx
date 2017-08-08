@@ -5,6 +5,8 @@
 
 import React from 'react'
 import Immutable from 'immutable'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
 import LoLoMoRow from '../components/LoLoMoRow'
 import LoMoCoversContainer from './LoMoCoversContainer'
@@ -35,12 +37,19 @@ export default class LoLoMoContainer extends React.PureComponent {
 
             let jawBone = null
 
+            jawBone = hasSelection ? (
+                <div>
+                    jawBone
+                </div>
+            ) : null
+
             return (
                 <LoLoMoRow
                     key={key}
                     hasSelection={hasSelection}
                     title={title}
-                    modelKey={key}>
+                    modelKey={key}
+                    jawBone={jawBone}>
                     <LoMoCoversContainer 
                         subjects={model.get('subjects')}
                         hasSelection={hasSelection}

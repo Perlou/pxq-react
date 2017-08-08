@@ -31,6 +31,6 @@ export default handleActions({
         return state.set('comingSoon', comingSoon)
     },
     [actionCreators.loadTop20] (state, { payload: top20 }) {
-        return state.set('comingSoon', top20)
+        return state.set('top20', top20)
     }
 }, initialState)
